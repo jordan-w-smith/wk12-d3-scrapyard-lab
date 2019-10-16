@@ -11,4 +11,8 @@ public class Fridge implements ICrushable {
     public int getMetalContent() {
         return this.metalContentKG;
     }
+
+    public void setMetalCountTo0() {
+        this.metalContentKG = 0;
+    }
 }

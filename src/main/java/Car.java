@@ -11,6 +11,10 @@ public class Car implements ICrushable {
         return this.metalContentKG;
     }
 
+    public void setMetalCountTo0() {
+        this.metalContentKG = 0;
+    }
+
 
     public String getModel() {
         return this.model;

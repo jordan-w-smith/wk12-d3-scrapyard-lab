@@ -7,11 +7,13 @@ public class ScrapYardTest {
 
     ScrapYard scrapyard;
     Car car;
+    Fridge fridge;
 
     @Before
     public void before() {
         scrapyard = new ScrapYard("The Scrap Yard");
         car = new Car(100, "VW Golf");
+        fridge = new Fridge(30);
     }
 
     @Test
@@ -32,6 +34,12 @@ public class ScrapYardTest {
     @Test
     public void canAddCarToCrushables() {
         scrapyard.addCrushable(car);
+        assertEquals(1, scrapyard.countCrushables());
+    }
+
+    @Test
+    public void canAddFridgeToCrushables() {
+        scrapyard.addCrushable(fridge);
         assertEquals(1, scrapyard.countCrushables());
     }
 }

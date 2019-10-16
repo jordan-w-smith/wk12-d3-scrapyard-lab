@@ -8,10 +8,12 @@ public class ScrapYardTest {
     ScrapYard scrapyard;
     Car car;
     Fridge fridge;
+    CrushingMachine crushingMachine;
 
     @Before
     public void before() {
-        scrapyard = new ScrapYard("The Scrap Yard");
+        crushingMachine = new CrushingMachine();
+        scrapyard = new ScrapYard("The Scrap Yard", crushingMachine);
         car = new Car(100, "VW Golf");
         fridge = new Fridge(30);
     }
@@ -41,5 +43,11 @@ public class ScrapYardTest {
     public void canAddFridgeToCrushables() {
         scrapyard.addCrushable(fridge);
         assertEquals(1, scrapyard.countCrushables());
+    }
+
+    @Test
+    public void crushingCrushableAddsToScrapMetalKG() {
+        scrapyard.salvageMetal(car);
+        assertEquals(100, scrapyard.getMetalCount());
     }
 }

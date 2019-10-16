@@ -5,12 +5,14 @@ public class ScrapYard {
     private String name;
     private int scrapMetalKG;
     private ArrayList<ICrushable> crushables;
+    private CrushingMachine crushingMachine;
 
 
-    public ScrapYard(String name) {
+    public ScrapYard(String name, CrushingMachine crushingMachine) {
         this.name = name;
         this.scrapMetalKG = 0;
         this.crushables = new ArrayList<ICrushable>();
+        this.crushingMachine = crushingMachine;
     }
 
     public String getName() {
@@ -27,5 +29,9 @@ public class ScrapYard {
 
     public void addCrushable(ICrushable crushable) {
         this.crushables.add(crushable);
+    }
+
+    public void salvageMetal(ICrushable crushable) {
+        this.scrapMetalKG += this.crushingMachine.crush(crushable);
     }
 }
